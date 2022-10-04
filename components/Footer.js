@@ -7,12 +7,12 @@ const Footer = () => {
 
         {/* first section */}
         <div className='space-y-10'>
-            <h2 className='text-3xl'>spot on</h2>
-            <p className='font-thin'>SPOT ON ist die digitale Stimme der <br></br> Arbeitswelt von morgen.</p>
+            <h2 className='text-3xl pt-10'>spot on</h2>
+            <p className='font-thin text-sm'>SPOT ON ist die digitale Stimme der <br></br> Arbeitswelt von morgen.</p>
         </div>
 
         {/* second section */}
-        <div className='flex-col font-thin text-sm text-gray-600 underline leading-6'>
+        <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <div className='pb-10'>
                 <Link href="#">
                     <a><p>hello@spoton.com</p></a>
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
 
         {/* third section */}
-        <div className='flex-col font-thin text-sm text-gray-600 underline leading-6'>
+        <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <ul>
                 <Link href="#">
                     <a><li>Publiziere bei uns</li></a>
@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
 
         {/* fourth section */}
-        <div className='flex-col font-thin text-sm text-gray-600 underline leading-6'>
+        <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <ul>
                 <Link href="#">
                     <a><li>Datenschutz</li></a>
@@ -56,7 +56,10 @@ const Footer = () => {
                     <a><li>Impressum</li></a>
                 </Link>
             </ul>
-        </div>      
+        </div> 
+        <div className='flex justify-center text-xs md:hidden'>
+            <p>©2022 SPOT GmbH</p>
+        </div>     
     </div>
   )
 }

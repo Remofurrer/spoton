@@ -5,13 +5,13 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className='w-full bg-white'>
+    <nav className='w-full bg-black md:bg-white'>
         <div className='justify-between mx-auto md:items-center md:flex'>
             <div>
                 <div className='flex items-center justify-between py-3 md:py-1 md:block'>
                     <Link href="#">
                         <a>
-                            <h2 className='text-3xl font-bold pl-7'>Spot on</h2>
+                            <h2 className='text-3xl font-bold pl-7 text-white md:text-black'>Spot on</h2>
                         </a>
                     </Link>
                     <div className='md:hidden'>
@@ -57,19 +57,65 @@ const Navbar = () => {
                 }`}>
                     <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-12'>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
+                            <a><li className='text-gray-600 text-2xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
                         </Link>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-xl hover:text-teal-500 md:hover:underline md:hover:text-gray-600 py-6'>Events</li></a>
+                            <a><li className='text-gray-600 text-2xl hover:text-teal-500 md:hover:underline md:hover:text-gray-600 py-6'>Events</li></a>
                         </Link>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-xl hover:text-yellow-500 md:hover:underline md:hover:text-gray-600'>About</li></a>
+                            <a><li className='text-gray-600 text-2xl hover:text-yellow-500 md:hover:underline md:hover:text-gray-600'>About</li></a>
+                        </Link>
+                    </ul>
+                </div>
+                <hr></hr>
+                <div 
+                    className={`text-xs pl-12 py-10 text-gray-500 leading-6 md:hidden ${
+                        navbar ? "block" : "hidden"
+                    }`}>
+                    <ul>
+                        <Link href="#">
+                            <a className='hover:underline'><li>Publiziere bei uns</li></a>
+                        </Link>
+                        <Link href="#">
+                            <a className='hover:underline'><li>Organisiere Events</li></a>
+                        </Link>
+                        <Link href="#">
+                            <a className='hover:underline'><li>Promote deine Events bei uns</li></a>
+                        </Link>
+                    </ul>
+                </div>
+                <hr></hr>
+                <div 
+                    className={`text-xs pl-12 py-10 text-gray-500 leading-6 md:hidden ${
+                        navbar ? "block" : "hidden"
+                    }`}>
+                    <ul>
+                        <Link href="#">
+                           <a className='hover:underline'><li>LinkedIn</li></a>
+                        </Link>
+                        <Link href="#">
+                           <a className='hover:underline'><li>YouTube</li></a>
+                        </Link>
+                        <Link href="#">
+                           <a className='hover:underline'><li>people Podcast Spotify</li></a>
                         </Link>
                     </ul>
                 </div>
             </div>
-            <div>
-                <button className='border p-6 bg-black text-white hidden md:block'>Newsletter</button>
+            <hr></hr>
+            <div 
+                className={`text-xs text-gray-500 pl-12 py-10 md:hidden ${
+                    navbar ? "block" : "hidden"
+                }`}>
+                <p>Möchtest du Teil unseres Netzwerkes werden, um <br></br>
+                gemeinsam unsere Arbeitswelt von morgen zu <br></br> 
+                gestalten? Dann bist du bei SPOT ON richtig.</p>
+            </div>
+            <div 
+                className={`text-s p-4 md:p-6 bg-gray-600 text-white md:bg-black cursor-pointer md:block ${
+                    navbar ? "block" : "hidden"
+                }`}>
+                <button className=''>Newsletter</button>
             </div>
         </div>
     </nav>
