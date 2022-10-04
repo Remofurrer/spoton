@@ -5,13 +5,13 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className='w-full bg-white shadow'>
-        <div className='justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8'>
+    <nav className='w-full bg-white'>
+        <div className='justify-between mx-auto md:items-center md:flex'>
             <div>
-                <div className='flex items-center justify-between py-3 md:py-5 md:block'>
+                <div className='flex items-center justify-between py-3 md:py-1 md:block'>
                     <Link href="#">
                         <a>
-                            <h2 className='text-3xl font-bold'>Spot on</h2>
+                            <h2 className='text-3xl font-bold pl-7'>Spot on</h2>
                         </a>
                     </Link>
                     <div className='md:hidden'>
@@ -55,21 +55,21 @@ const Navbar = () => {
                 <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
                     navbar ? "block" : "hidden"
                 }`}>
-                    <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-6'>
+                    <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-12'>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-4xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
+                            <a><li className='text-gray-600 text-xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
                         </Link>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-4xl hover:text-teal-500 md:hover:underline md:hover:text-gray-600 py-6'>Events</li></a>
+                            <a><li className='text-gray-600 text-xl hover:text-teal-500 md:hover:underline md:hover:text-gray-600 py-6'>Events</li></a>
                         </Link>
                         <Link href="#">
-                            <a><li className='text-gray-600 text-4xl hover:text-yellow-500 md:hover:underline md:hover:text-gray-600'>About</li></a>
+                            <a><li className='text-gray-600 text-xl hover:text-yellow-500 md:hover:underline md:hover:text-gray-600'>About</li></a>
                         </Link>
                     </ul>
                 </div>
             </div>
             <div>
-                <button className='border m-0 p-6 bg-black text-white hidden md:block'>Newsletter</button>
+                <button className='border p-6 bg-black text-white hidden md:block'>Newsletter</button>
             </div>
         </div>
     </nav>
