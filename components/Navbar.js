@@ -5,13 +5,17 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className='w-full bg-black md:bg-white'>
+    <nav className={`w-full bg-black md:bg-white ${
+        navbar ? "bg-black" : "bg-white"
+    }`}>
         <div className='justify-between mx-auto md:items-center md:flex'>
             <div>
                 <div className='flex items-center justify-between py-3 md:py-1 md:block'>
                     <Link href="#">
                         <a>
-                            <h2 className='text-3xl font-bold pl-7 text-white md:text-black'>Spot on</h2>
+                            <h2 className={`text-3xl font-bold pl-7 md:text-black ${
+                                navbar ? "text-white" : "text-black"
+                            }`}>Spot on</h2>
                         </a>
                     </Link>
                     <div className='md:hidden'>
