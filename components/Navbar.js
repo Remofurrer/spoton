@@ -13,14 +13,14 @@ const Navbar = () => {
                 <div className='flex items-center justify-between py-3 md:py-1 md:block'>
                     <Link href="#">
                         <a>
-                            <h2 className={`text-3xl font-bold pl-7 md:text-black ${
+                            <h2 className={`text-3xl font-bold pl-7 md:pl-12 md:text-black ${
                                 navbar ? "text-white" : "text-black"
                             }`}>Spot on</h2>
                         </a>
                     </Link>
-                    <div className='md:hidden'>
+                    <div className='md:hidden pr-7'>
                         <button 
-                            className='p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border'
+                            className='p-2 text-gray-700 rounded-md outline-none'
                             onClick={() => setNavbar(!navbar)}>
                                 {navbar ? (
                                     <svg
