@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className='justify-between mx-auto md:items-center md:flex'>
             <div>
                 <div className='flex items-center justify-between py-3 md:py-1 md:block'>
-                    <Link href="#">
+                    <Link href="/">
                         <a>
                             <h2 className={`text-3xl font-bold pl-7 md:pl-12 md:text-black ${
                                 navbar ? "text-white" : "text-black"
@@ -94,13 +94,13 @@ const Navbar = () => {
                         navbar ? "block" : "hidden"
                     }`}>
                     <ul>
-                        <Link href="#">
+                        <Link href="https://www.linkedin.com/company/spotted-spoton/">
                            <a className='hover:underline'><li>LinkedIn</li></a>
                         </Link>
-                        <Link href="#">
+                        <Link href="https://www.youtube.com/channel/UC59wse-F-tMDluY6Nd0CGnQ">
                            <a className='hover:underline'><li>YouTube</li></a>
                         </Link>
-                        <Link href="#">
+                        <Link href="https://open.spotify.com/show/5TRz38pBcVy1AZ23UBi3J4?si=5_L1EkX6R0CBZmNpyQhQ5g&nd=1">
                            <a className='hover:underline'><li>people Podcast Spotify</li></a>
                         </Link>
                     </ul>

@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import rectangleMobile from '../public/rectanglemobile.png'
 
 const HeaderMobile = () => {
   return (
-    <div>HeaderMobile</div>
+    <div>
+      <Image
+        className='bg-contain' 
+        src={rectangleMobile}
+      />
+    </div>
   )
 }
 

@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import rectangle from '../public/rectangle.png'
 
 const HeaderDesktop = () => {
   return (
-    <div>HeaderDesktop</div>
+    <div className='relative' text-center>
+      <Image className='' src={rectangle}/>
+    </div>
   )
 }
 
