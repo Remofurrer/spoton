@@ -14,18 +14,18 @@ const Footer = () => {
         {/* second section */}
         <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <div className='pb-10'>
-                <Link href="#">
+                <Link type="email" href="mailto:hello@spoton.ch">
                     <a><p>hello@spoton.com</p></a>
                 </Link>
             </div>
             <ul>
-                <Link href="#">
+                <Link href="https://www.linkedin.com/company/spotted-spoton/">
                     <a><li>LinkedIn</li></a>
                 </Link>
-                <Link href="#">
+                <Link href="https://www.youtube.com/channel/UC59wse-F-tMDluY6Nd0CGnQ">
                     <a><li>YouTube</li></a>
                 </Link>
-                <Link href="#">
+                <Link href="https://open.spotify.com/show/5TRz38pBcVy1AZ23UBi3J4?si=5_L1EkX6R0CBZmNpyQhQ5g&nd=1">
                     <a><li>People Podcast Spotify</li></a>
                 </Link>
             </ul>
@@ -34,13 +34,13 @@ const Footer = () => {
         {/* third section */}
         <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <ul>
-                <Link href="#">
+                <Link href="/about/participation">
                     <a><li>Publiziere bei uns</li></a>
                 </Link>
-                <Link href="#">
+                <Link href="/about/participation">
                     <a><li>Organisiere Events</li></a>
                 </Link>
-                <Link href="#">
+                <Link href="/about/participation">
                     <a><li>Promote deine Events bei uns</li></a>
                 </Link>
             </ul>
@@ -49,10 +49,10 @@ const Footer = () => {
         {/* fourth section */}
         <div className='flex-col font-thin text-xs text-gray-600 underline leading-6'>
             <ul>
-                <Link href="#">
+                <Link href="/datenschutz">
                     <a><li>Datenschutz</li></a>
                 </Link>
-                <Link href="./impressum">
+                <Link href="/impressum">
                     <a><li>Impressum</li></a>
                 </Link>
             </ul>
