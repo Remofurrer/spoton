@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import HeaderMobile from '../components/HeaderMobile';
 
 const datenschutz = () => {
   return (
     <div className='px-5 md:flex md:justify-evenly md:items-start'>
-        <HeaderMobile />
         {/* left side */}
         <div className='pt-14 pb-20 text-3xl md:text-5xl'>
             <h2>Datenschutz</h2>    
