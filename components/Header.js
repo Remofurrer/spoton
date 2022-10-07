@@ -7,7 +7,6 @@ const Header = () => {
   return (
     <div>
         <Image className={styles.img} src={Headerbg} />
-        <h2 className={styles.text}>About</h2>
     </div>
   )
 }
