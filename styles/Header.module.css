@@ -1,11 +1,22 @@
-.Header {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    align-content: space-between;
-    height: 700px;
-    background-color: antiquewhite;
+.img {
+    position:relative;
 }
-.container {
-    text-align: center;
+.text {
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 200px;
+    width: 100%;
+    font-size: 3rem;
+}
+
+@media only screen and (min-width:800px) {
+    .text {
+        left: 0;
+        position:absolute;
+        text-align:center;
+        top: 300px;
+        width: 100%;
+        font-size: 4rem;
+    }
 }

@@ -1,6 +1,6 @@
 .sliderContainer {
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     background-color: #ffd2c2;
     padding: 7rem;
 }

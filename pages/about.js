@@ -4,6 +4,7 @@ import teamImage from '../public/team.webp';
 import Lena from '../public/lena.webp';
 import Swantje from '../public/swantje.webp';
 import Nicole from '../public/nicole.webp';
+import Test from '../public/test.jpg';
 import Link from 'next/link';
 
 const about = () => {
@@ -12,7 +13,7 @@ const about = () => {
         {/* Header */}
         <div className='px-5'>
             <div className='space-y-6 pt-20 pb-20 md:flex md:justify-evenly md:items-start'>
-                <h2 className='md:w-40 md:text-xl'>SPOT ON ist die digitale Stimme der Arbeitswelt von morgen.</h2>
+                <h2 className='md:w-48 md:text-2xl'>SPOT ON ist die digitale Stimme der Arbeitswelt von morgen.</h2>
                 <p className='opacity-60 md:w-3/6'>Unser Ziel ist die Vernetzung, Sichtbarkeit und Stärkung von HR und allen Gestalter*innen, um diese als strategische Partner für die Zukunft der Arbeit zu etablieren.</p> 
             </div>
         </div>
@@ -42,9 +43,9 @@ const about = () => {
         </div>
 
         {/* Section 4 */}
-        <div className='py-20 md:flex md:px-36'>
+        <div className='py-20 md:flex md:justify-evenly items-center md:px-20'>
             <div>
-                <Image className='md:w-40' src={Lena}/>
+                <Image className='md:w-10' src={Test}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Lena Schwerzmann</h2>
@@ -57,9 +58,9 @@ const about = () => {
             </div>
         </div>
 
-        <div className='py-20 md:flex md:px-36'>
+        <div className='py-20 md:flex md:px-10 bg-gray-100'>
             <div>
-                <Image className='w-40' src={Nicole}/>
+                <Image className='w-10' src={Test}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Nicole Hodel</h2>
@@ -72,9 +73,9 @@ const about = () => {
             </div>
         </div>
 
-        <div className='py-20 md:flex md:px-36'>
+        <div className='py-20 md:flex md:px-10'>
             <div>
-                <Image className='w-40' src={Swantje}/>
+                <Image className='w-10' src={Test}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Swantje Lübbers</h2>
@@ -93,7 +94,7 @@ const about = () => {
         </div>
 
         {/* Data from sanity */}
-        <div className='bg-cover'>
+        <div className='bg-cover m-0 p-0'>
             <Image src={teamImage} alt="Image from out founders team" />
         </div>
     </div>
