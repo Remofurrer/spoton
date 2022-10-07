@@ -1,0 +1,28 @@
+.sliderContainer {
+    overflow: hidden;
+    width: 100vw;
+    background-color: #ffd2c2;
+    padding: 7rem;
+}
+
+.logoSlider {
+    display: flex;
+    height: 60px;
+    width: 500rem;
+    animation: slideshow 90s infinite linear;
+}
+.logo {
+    padding: 10rem;
+    width: 100vw;
+    height: 100%;
+}
+
+
+@keyframes slideshow {
+    from {
+      transform: translate(800px);
+    }
+    to {
+      transform: translate(-200rem);
+    }
+  }
