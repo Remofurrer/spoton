@@ -20,7 +20,7 @@
 
 @keyframes slideshow {
     from {
-      transform: translate(800px);
+      transform: translate(50px);
     }
     to {
       transform: translate(-200rem);
