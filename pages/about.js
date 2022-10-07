@@ -1,6 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import teamImage from '../public/team.webp';
+import Lena from '../public/lena.webp';
+import Swantje from '../public/swantje.webp';
+import Nicole from '../public/nicole.webp';
+import Link from 'next/link';
 
 const about = () => {
   return (
@@ -38,7 +42,50 @@ const about = () => {
         </div>
 
         {/* Section 4 */}
-        <div></div>
+        <div className='py-20 md:flex md:px-36'>
+            <div>
+                <Image className='md:w-40' src={Lena}/>
+            </div>
+            <div className='px-10'>
+                <h2 className='text-4xl py-4'>Lena Schwerzmann</h2>
+                <div className=''>
+                    <p>Lena ist Organisations- und Arbeitspsychologin und verfügt über mehr als 10 Jahre angewandtes Wissen über HR-Trends, zukünftige Arbeitsstudien und -praktiken, ergänzt durch einen Hintergrund in digitalem Marketing und Kommunikation. </p>
+                    <p>Sie ist Gründerin von spoton.ch, organisiert zahlreiche Veranstaltungen für HR und unterstützt daneben eine Vielzahl an Unternehmen und Initiativen, wie bspw. Advance oder Techface.</p>
+                    <p>Lena glaubt fest an eine bessere Arbeitswelt mit menschlicher Führung, echter Gleichheit und sinnhaftem Business, um die immer komplexeren globalen Herausforderungen zu meistern.</p>
+                    <Link href="mailto:lena@spoton.ch"><button className='mt-4 bg-red-500 p-4 rounded text-white'>Kontakt</button></Link>
+                </div>
+            </div>
+        </div>
+
+        <div className='py-20 md:flex md:px-36'>
+            <div>
+                <Image className='w-40' src={Nicole}/>
+            </div>
+            <div className='px-10'>
+                <h2 className='text-4xl py-4'>Nicole Hodel</h2>
+                <div className=''>
+                    <p>Lena ist Organisations- und Arbeitspsychologin und verfügt über mehr als 10 Jahre angewandtes Wissen über HR-Trends, zukünftige Arbeitsstudien und -praktiken, ergänzt durch einen Hintergrund in digitalem Marketing und Kommunikation. </p>
+                    <p>Sie ist Gründerin von spoton.ch, organisiert zahlreiche Veranstaltungen für HR und unterstützt daneben eine Vielzahl an Unternehmen und Initiativen, wie bspw. Advance oder Techface.</p>
+                    <p>Lena glaubt fest an eine bessere Arbeitswelt mit menschlicher Führung, echter Gleichheit und sinnhaftem Business, um die immer komplexeren globalen Herausforderungen zu meistern.</p>
+                    <Link href="mailto:nicole.hodel@outlook.com"><button className='mt-4 bg-red-500 p-4 rounded text-white'>Kontakt</button></Link>
+                </div>
+            </div>
+        </div>
+
+        <div className='py-20 md:flex md:px-36'>
+            <div>
+                <Image className='w-40' src={Swantje}/>
+            </div>
+            <div className='px-10'>
+                <h2 className='text-4xl py-4'>Swantje Lübbers</h2>
+                <div className=''>
+                    <p>Lena ist Organisations- und Arbeitspsychologin und verfügt über mehr als 10 Jahre angewandtes Wissen über HR-Trends, zukünftige Arbeitsstudien und -praktiken, ergänzt durch einen Hintergrund in digitalem Marketing und Kommunikation. </p>
+                    <p>Sie ist Gründerin von spoton.ch, organisiert zahlreiche Veranstaltungen für HR und unterstützt daneben eine Vielzahl an Unternehmen und Initiativen, wie bspw. Advance oder Techface.</p>
+                    <p>Lena glaubt fest an eine bessere Arbeitswelt mit menschlicher Führung, echter Gleichheit und sinnhaftem Business, um die immer komplexeren globalen Herausforderungen zu meistern.</p>
+                    <Link href="mailto:swantje@spoton.ch"><button className='mt-4 bg-red-500 p-4 rounded text-white'>Kontakt</button></Link>
+                </div>
+            </div>
+        </div>
 
         {/* Data from sanity */}
         <div>
