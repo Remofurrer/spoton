@@ -1,10 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import teamImage from '../public/team.webp';
-import Lena from '../public/lena.webp';
-import Swantje from '../public/swantje.webp';
-import Nicole from '../public/nicole.webp';
-import Test from '../public/test.jpg';
+import About from '../public/about.jpg';
 import Link from 'next/link';
 
 const about = () => {
@@ -45,7 +42,7 @@ const about = () => {
         {/* Section 4 */}
         <div className='py-20 md:flex md:justify-evenly items-center md:px-20'>
             <div>
-                <Image className='md:w-10' src={Test}/>
+                <Image className='md:w-10' src={About}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Lena Schwerzmann</h2>
@@ -60,7 +57,7 @@ const about = () => {
 
         <div className='py-20 md:flex md:px-10 bg-gray-100'>
             <div>
-                <Image className='w-10' src={Test}/>
+                <Image className='w-10' src={About}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Nicole Hodel</h2>
@@ -75,7 +72,7 @@ const about = () => {
 
         <div className='py-20 md:flex md:px-10'>
             <div>
-                <Image className='w-10' src={Test}/>
+                <Image className='w-10' src={About}/>
             </div>
             <div className='px-10'>
                 <h2 className='text-4xl py-4'>Swantje Lübbers</h2>
@@ -95,7 +92,7 @@ const about = () => {
 
         {/* Data from sanity */}
         <div className='bg-cover m-0 p-0'>
-            <Image src={teamImage} alt="Image from out founders team" />
+            <Image src={teamImage} alt="Image from our founders team" />
         </div>
     </div>
   )

@@ -119,7 +119,7 @@ const Navbar = () => {
                 className={`text-s p-4 md:p-6 bg-gray-600 text-white md:bg-black cursor-pointer md:block ${
                     navbar ? "block" : "hidden"
                 }`}>
-                <button className=''>Newsletter</button>
+                <Link href="/newsletter"><button className=''>Newsletter</button></Link>
             </div>
         </div>
     </nav>
