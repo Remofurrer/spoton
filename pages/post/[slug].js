@@ -35,7 +35,7 @@ const Post = ({post}) => {
   } = post
   return (
     <article>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <span>By {name}</span>
       {categories && (
         <ul>
