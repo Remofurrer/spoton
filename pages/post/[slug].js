@@ -16,7 +16,7 @@ const ptComponents = {
       }
       return (
         <img
-          alt="image"
+          alt="image one"
           loading="lazy"
           src={urlFor(value).width(320).height(240).fit('max').auto('format')}
         />
