@@ -1,8 +1,9 @@
 // [slug].js
-import groq from 'groq'
-import imageUrlBuilder from '@sanity/image-url'
-import {PortableText} from '@portabletext/react'
+import groq from 'groq';
+import {PortableText} from '@portabletext/react';
+import imageUrlBuilder from '@sanity/image-url';
 import client from '../../client'
+
 
 function urlFor (source) {
   return imageUrlBuilder(client).image(source)
@@ -16,7 +17,7 @@ const ptComponents = {
       }
       return (
         <img
-          alt="image"
+          alt={value.alt || ' '}
           loading="lazy"
           src={urlFor(value).width(320).height(240).fit('max').auto('format')}
         />
@@ -25,60 +26,87 @@ const ptComponents = {
   }
 }
 
-const Post = ({post}) => {
+const Post = ({ post}) => {
   const {
-    title = 'Missing title',
-    name = 'Missing name',
+    title,
+    id,
     categories,
-    authorImage,
+    currencies,
+    mainImage,
+    url,
     body = []
-  } = post
+  } = post || {};
+
   return (
-    <article>
-      <h1>{title}</h1>
-      <span>By {name}</span>
-      {categories && (
-        <ul>
-          Posted in
-          {categories.map(category => <li key={category}>{category}</li>)}
-        </ul>
-      )}
-      {authorImage && (
-        <div>
-          <img
-            src={urlFor(authorImage)
-              .width(50)
-              .url()}
-            alt="image"
+    <div className=''>
+        <article className='bg-gray-100 w-full p-5 px-5'>
+
+          <div className='md:flex md:space-x-4 space-y-4 md:space-y-0'>
+          {/* left section */}
+          <div className='bg-white md:w-5/12 rounded'>
+            
+          <img className='w-full' src={urlFor(mainImage).url()}
+            width='500'
+            height='500' 
+            alt="Mainn Image"/>
+          {/* text section */}
+            <div className='px-5 py-3 space-y-2'>
+            <h1 className='text-2xl'>{title}</h1>
+              {categories && (
+              <ul className='text-sm'>
+                {categories?.map((category, id) => <li key={id}>{category}</li>)}
+              </ul>
+            )}
+            <hr></hr>
+            <p className='text-sm text-gray-500'>{title} akzeptiert</p>
+            <div className='flex space-x-3'>
+            {currencies?.map((currency, id) => <img className='pb-2' key={id} src={urlFor(currency).width(35).height(35).url()} alt="Descriptive alt text that has been set on your images" />)} 
+            </div>
+            <a href={url} target='blank'><button className='text-lg text-white w-full pl-0 ml-0 btn py-3 bg-blue-700 rounded'>Webseite besuchen</button></a>
+            </div>
+          </div>
+
+          {/* right section */}
+          <div className='bg-white md:w-7/12 rounded p-5'>
+            <h1 className='text-gray-500 text-xl pb-4'>Beschreibung:</h1>
+          <PortableText
+            value={body}
+            components={ptComponents}
           />
+          </div>
+          </div>
+
+        </article>
+        <div className='p-4 sm:p-6'>
         </div>
-      )}
-      <PortableText
-        value={body}
-        components={ptComponents}
-      />
-    </article>
+    </div>
   )
 }
 
+export default Post
+
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
-  "name": author->name,
   "categories": categories[]->title,
-  "authorImage": author->image,
-  body
+  "currencies": currencies[]->image,
+  mainImage,
+  body,
+  url,
 }`
+
+{/* static Paths */}
 export async function getStaticPaths() {
   const paths = await client.fetch(
     groq`*[_type == "post" && defined(slug.current)][].slug.current`
   )
-
   return {
-    paths: paths.map((slug) => ({params: {slug}})),
+    paths: paths?.map((slug) => ({params: {slug}})),
     fallback: true,
   }
 }
 
+
+{/* static Props */}
 export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params
@@ -89,4 +117,3 @@ export async function getStaticProps(context) {
     }
   }
 }
-export default Post
