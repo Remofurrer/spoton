@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import groq from 'groq'
-import client from '../client'
+import sanityClient from '../client'
 
 const Index = ({posts}) => {
     return (
@@ -22,7 +22,7 @@ const Index = ({posts}) => {
 }
 
 export async function getStaticProps() {
-    const posts = await client.fetch(groq`
+    const posts = await sanityClient.fetch(groq`
       *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
     `)
     return {
