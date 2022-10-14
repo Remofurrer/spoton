@@ -5,7 +5,7 @@ import {PortableText} from '@portabletext/react'
 import sanityClient from '../../client'
 
 function urlFor (source) {
-  return imageUrlBuilder(client).image(source)
+  return imageUrlBuilder(sanityClient).image(source)
 }
 
 const ptComponents = {
