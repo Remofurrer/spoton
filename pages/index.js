@@ -1,7 +1,14 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import groq from 'groq'
+import client from '../client'
 
 
-export default function Home() {
+
+
+
+
+const Home = ({posts}) => {
 
   return (
     <div>
@@ -11,11 +18,40 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>Hello world</div>
+      <div className='flex justify-between items-center px-4 py-10 md:px-16'>
+        <h2 className='text-4xl'>Stories</h2>
+        <Link href="/stories">
+          <a><button className='text-white bg-red-500 p-3 rounded hover:opacity-50 text-sm'>Alle Stories</button></a>
+        </Link>
+      </div>
 
-
+      <div>
+        <h1>Welcome to a blog!</h1>
+        {posts.length > 0 && posts.map(
+          ({ _id, title = '', slug = '', publishedAt = '' }) =>
+            slug && (
+              <li key={_id}>
+                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                  <a>{title}</a>
+                </Link>{' '}
+                ({new Date(publishedAt).toDateString()})
+              </li>
+            )
+        )}
+      </div>
     </div>
   )
 }
 
+export async function getStaticProps() {
+  const posts = await client.fetch(groq`
+    *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+  `)
+  return {
+    props: {
+      posts
+    }
+  }
+}
 
+export default Home

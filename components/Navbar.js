@@ -60,7 +60,7 @@ const Navbar = () => {
                     navbar ? "block" : "hidden"
                 }`}>
                     <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-12'>
-                        <Link href="#">
+                        <Link href="/stories">
                             <a><li className='text-gray-600 text-2xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
                         </Link>
                         <Link href="/events">
