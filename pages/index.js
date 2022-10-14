@@ -28,7 +28,7 @@ const Home = ({posts}) => {
       <div>
         <h1>Welcome to a blog!</h1>
         {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', publishedAt = '' }) =>
+          ({ _id, title, slug, publishedAt }) =>
             slug && (
               <li key={_id}>
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
