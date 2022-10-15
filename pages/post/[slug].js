@@ -4,6 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import {PortableText} from '@portabletext/react'
 import sanityClient from '../../client'
 import {useRouter} from 'next/router'
+import Link from 'next/link'
 
 function urlFor (source) {
   return imageUrlBuilder(sanityClient).image(source)
@@ -38,19 +39,43 @@ const Post = ({post}) => {
     name = 'Missing name',
     categories,
     authorImage,
+    publishedAt,
     body = []
   } = post
+
   return (
-    <article>
-      <h2>{title}</h2>
-      <span>By {name}</span>
-      {categories && (
-        <ul>
-          Posted in
-          {categories.map(category => <li key={category}>{category}</li>)}
-        </ul>
-      )}
-      {authorImage && (
+    <div className='px-5 md:flex md:justify-evenly md:items-start'>
+      {/* left section */}
+      <div className='pt-14 pb-20 '>
+      <div className='bg-gray-100 p-4 mt-6 rounded-xl'>
+        <p className='opacity-60 pb-2'>Teile diesen Beitrag mit deinen Freund*innen<br></br>
+        auf deiner bevorzugten Plattform</p>
+        <div className='text-sm'>
+          <ul className='flex'>
+            <li><Link href="#"><a className='underline'>Facebook,</a></Link>&nbsp;</li>
+            <li><Link href="#"><a className='underline'>Linkedin,</a></Link>&nbsp;</li>
+            <li><Link href="#"><a className='underline'>Twitter,</a></Link>&nbsp;</li>
+            <li><Link href="#"><a className='underline'>WhatsApp,</a></Link>&nbsp;</li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+
+      {/* right section */}
+      <div className='md:pt-16 md:h-[80vh] md:overflow-scroll md:scrollbar-hide md:w-[50vw]'>
+        <div className='text-4xl'>
+          <h2>{title}</h2>
+        </div>
+        <div>
+          <PortableText 
+          value={body}
+          components={ptComponents}
+          />
+        </div>
+
+        <div>
+        {authorImage && (
         <div>
           <img
             src={urlFor(authorImage)
@@ -60,11 +85,17 @@ const Post = ({post}) => {
           />
         </div>
       )}
-      <PortableText
-        value={body}
-        components={ptComponents}
-      />
-    </article>
+        <span>By {name}</span>
+        </div>
+      
+      </div>
+      {categories && (
+        <ul>
+          Posted in
+          {categories.map(category => <li key={category}>{category}</li>)}
+        </ul>
+      )}
+    </div>
   )
 }
 
@@ -73,6 +104,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
+  publishedAt,
   body
 }`
 export async function getStaticPaths() {

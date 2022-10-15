@@ -10,7 +10,7 @@ const datenschutz = () => {
         </div>
         
         {/* right side */}
-        <div className='md:pt-16 md:h-[80vh] md:overflow-scroll scrollbar-hide'>
+        <div className='md:pt-16 md:h-[80vh] md:overflow-scroll md:scrollbar-hide scrollbar-hide'>
             {/* company informations */}
             <div className='md:max-w-xl'>
                 <p className='pb-10 opacity-60'>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:</p>

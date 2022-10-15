@@ -10,7 +10,7 @@ const impressum = () => {
       </div>
 
       {/* right side */}
-     <div className="md:pt-16 md:h-[80vh] md:overflow-scroll">
+     <div className="md:pt-16 md:h-[80vh] md:overflow-scroll md:scrollbar-hide">
         {/* company informations */}
         <div>
           <h2 className="text-bold md:text-xl">SPOT GMBH</h2>
