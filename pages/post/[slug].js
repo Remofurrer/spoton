@@ -26,6 +26,12 @@ const ptComponents = {
 }
 
 const Post = ({post}) => {
+
+  const router = useRouter()
+  if (router.isFallback) {
+     return <div>Loading...</div>
+  }
+  
   const {
     title = 'Missing title',
     name = 'Missing name',
