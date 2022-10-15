@@ -3,6 +3,7 @@ import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import {PortableText} from '@portabletext/react'
 import sanityClient from '../../client'
+import {useRouter} from 'next/router'
 
 function urlFor (source) {
   return imageUrlBuilder(sanityClient).image(source)
@@ -31,7 +32,7 @@ const Post = ({post}) => {
   if (router.isFallback) {
      return <div>Loading...</div>
   }
-  
+
   const {
     title = 'Missing title',
     name = 'Missing name',
