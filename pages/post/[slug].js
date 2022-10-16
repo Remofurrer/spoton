@@ -44,9 +44,9 @@ const Post = ({post}) => {
   } = post
 
   return (
-    <div className='px-20 md:flex md:justify-evenly md:items-start space-x-20'>
+    <div className='px-10 md:px-20 md:flex md:justify-evenly md:items-start md:space-x-20'>
       {/* left section */}
-      <div className='pt-14 pb-20 w-3/4'>
+      <div className='pt-14 pb-20 md:w-3/4'>
       <div className='bg-gray-100 p-4 mt-6 rounded-xl'>
         <p className='opacity-60 pb-2'>Teile diesen Beitrag mit deinen Freund*innen<br></br>
         auf deiner bevorzugten Plattform</p>
