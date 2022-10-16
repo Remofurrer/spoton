@@ -44,9 +44,9 @@ const Post = ({post}) => {
   } = post
 
   return (
-    <div className='px-5 md:flex md:justify-evenly md:items-start'>
+    <div className='px-20 md:flex md:justify-evenly md:items-start space-x-20'>
       {/* left section */}
-      <div className='pt-14 pb-20 '>
+      <div className='pt-14 pb-20 w-3/4'>
       <div className='bg-gray-100 p-4 mt-6 rounded-xl'>
         <p className='opacity-60 pb-2'>Teile diesen Beitrag mit deinen Freund*innen<br></br>
         auf deiner bevorzugten Plattform</p>
@@ -64,10 +64,10 @@ const Post = ({post}) => {
 
       {/* right section */}
       <div className='md:pt-16 md:h-[80vh] md:overflow-scroll md:scrollbar-hide md:w-[50vw]'>
-        <div className='text-4xl'>
+        <div className='text-4xl pb-12'>
           <h2>{title}</h2>
         </div>
-        <div>
+        <div className='opacity-60'>
           <PortableText 
           value={body}
           components={ptComponents}
@@ -87,14 +87,13 @@ const Post = ({post}) => {
       )}
         <span>By {name}</span>
         </div>
-      
-      </div>
-      {categories && (
+        {categories && (
         <ul>
           Posted in
           {categories.map(category => <li key={category}>{category}</li>)}
         </ul>
       )}
+      </div>
     </div>
   )
 }
