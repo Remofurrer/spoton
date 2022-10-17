@@ -5,7 +5,7 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className={`w-full bg-black md:bg-white shadow-md ${
+    <nav className={`w-full bg-white md:bg-white shadow-md ${
         navbar ? "bg-black" : "bg-white"
     }`}>
         <div className='justify-between mx-auto md:items-center md:flex'>
