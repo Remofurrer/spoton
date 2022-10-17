@@ -14,9 +14,9 @@ const Index = ({posts}) => {
         {posts.length > 0 && posts.map(
           ({ _id, title = '', slug = '', description, mainImage }) =>
             slug && (
-              <div className='py-2 md:px-2'>
+              <div key={_id} className='py-2 md:px-2'>
               <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-              <div key={_id} className='border rounded-md p-4 bg-white'>
+              <div className='border rounded-md p-4 bg-white'>
               <img className='w-full' src={urlFor(mainImage).url()}
                 width='500'
                 height='500' 
