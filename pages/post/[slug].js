@@ -39,14 +39,21 @@ const Post = ({post}) => {
     name = 'Missing name',
     categories,
     authorImage,
+    mainImage,
     publishedAt,
     body = []
   } = post
 
   return (
-    <div className='px-10 md:px-20 md:flex md:justify-evenly md:items-start md:space-x-20'>
+    <div className='pb-20 px-10 md:px-20 md:flex md:justify-evenly md:items-start md:space-x-20'>
       {/* left section */}
       <div className='pt-14 pb-20'>
+      <img
+            src={urlFor(mainImage)
+              .width(500)
+              .url()}
+            alt="image"
+          />
       <div className='bg-gray-100 p-4 mt-6 rounded-xl'>
         <p className='opacity-60 pb-2'>Teile diesen Beitrag mit deinen Freund*innen<br></br>
         auf deiner bevorzugten Plattform</p>
@@ -65,6 +72,7 @@ const Post = ({post}) => {
       {/* right section */}
       <div className='md:pt-16 md:h-[80vh] md:overflow-scroll md:scrollbar-hide md:w-[50vw]'>
         <div className='text-4xl pb-12'>
+          <p className='text-sm py-14 md:pb-20 pt-0'>{publishedAt}</p>
           <h2>{title}</h2>
         </div>
         <div className='opacity-60'>
@@ -76,23 +84,24 @@ const Post = ({post}) => {
 
         <div>
         {authorImage && (
-        <div>
+        <div className='flex justify-start items-center py-10'>
           <img
+          className='rounded-full w-16 h-16'
             src={urlFor(authorImage)
-              .width(50)
               .url()}
             alt="image"
           />
+        <span className='text-xl md:text-3xl pl-10'>{name}</span>
         </div>
       )}
-        <span>By {name}</span>
         </div>
+        <div className='bg-gray-100 p-2 w-40 text-center rounded-full'>
         {categories && (
-        <ul>
-          Posted in
-          {categories.map(category => <li key={category}>{category}</li>)}
-        </ul>
-      )}
+              <ul className='text-sm'>
+                {categories?.map((category, id) => <li key={id}>{category}</li>)}
+              </ul>
+            )}
+        </div>
       </div>
     </div>
   )
@@ -103,6 +112,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
+  mainImage,
   publishedAt,
   body
 }`

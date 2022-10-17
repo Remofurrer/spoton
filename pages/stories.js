@@ -13,7 +13,7 @@ function urlFor (source) {
         <div className='bg-gray-100'>
           <div className='md:grid md:grid-cols-3 px-4 py-4'>
           {posts.length > 0 && posts.map(
-            ({ _id, title = '', slug = '', description, mainImage }) =>
+            ({ _id, title = '', slug = '', description, mainImage, categories }) =>
               slug && (
                 <div key={_id} className='py-2 md:px-2'>
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>

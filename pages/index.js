@@ -8,11 +8,18 @@ function urlFor (source) {
 }
 
 const Index = ({posts}) => {
+
     return (
       <div className='bg-gray-100'>
+          <div className='p-4 md:p-6 flex items-center justify-between'>
+            <h2 className='text-4xl'>Stories</h2>
+            <Link href="/stories">
+              <a><button className='text-white p-3 bg-red-500 w-32 rounded'>Alle Stories</button></a>
+            </Link>
+          </div>
         <div className='md:grid md:grid-cols-3 px-4 py-4'>
-        {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', description, mainImage }) =>
+        {posts.slice(0-6).map(
+          ({ _id, title = '', slug = '', description, mainImage, categories }) =>
             slug && (
               <div key={_id} className='py-2 md:px-2'>
               <Link href="/post/[slug]" as={`/post/${slug.current}`}>
@@ -32,6 +39,7 @@ const Index = ({posts}) => {
       </div>
     )
 }
+
 
 export async function getStaticProps() {
     const posts = await sanityClient.fetch(groq`
