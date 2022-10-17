@@ -1,22 +1,34 @@
 import Link from 'next/link'
 import groq from 'groq'
 import sanityClient from '../client'
+import imageUrlBuilder from '@sanity/image-url';
+
+function urlFor (source) {
+  return imageUrlBuilder(sanityClient).image(source)
+}
 
 const Index = ({posts}) => {
     return (
-      <div>
-        <h1>Welcome to a blog!</h1>
+      <div className='bg-gray-100'>
+        <div className='md:grid md:grid-cols-3 px-4 py-4'>
         {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', publishedAt = '' }) =>
+          ({ _id, title = '', slug = '', description, mainImage }) =>
             slug && (
-              <li key={_id}>
-                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  <a>{title}</a>
-                </Link>{' '}
-                ({new Date(publishedAt).toDateString()})
-              </li>
+              <div className='py-2 md:px-2'>
+              <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+              <div key={_id} className='border rounded-md p-4 bg-white'>
+              <img className='w-full' src={urlFor(mainImage).url()}
+                width='500'
+                height='500' 
+                alt="Mainn Image"/>
+                <h2 className='text-2xl py-6'>{title}</h2>
+                <p className='opacity-60'>{description}</p>
+              </div>
+              </Link>
+              </div>
             )
         )}
+        </div>
       </div>
     )
 }

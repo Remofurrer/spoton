@@ -2,39 +2,48 @@ import React from 'react'
 import Link from 'next/link'
 import groq from 'groq'
 import sanityClient from '../client'
+import imageUrlBuilder from '@sanity/image-url';
 
-const stories = ({posts}) => {
-  return (
-    <div>
-
-      <div>
-        <h1>Welcome to a blog!</h1>
-        {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', publishedAt = '' }) =>
-            slug && (
-              <li key={_id}>
+function urlFor (source) {
+    return imageUrlBuilder(sanityClient).image(source)
+  }
+  
+  const stories = ({posts}) => {
+      return (
+        <div className='bg-gray-100'>
+          <div className='md:grid md:grid-cols-3 px-4 py-4'>
+          {posts.length > 0 && posts.map(
+            ({ _id, title = '', slug = '', description, mainImage }) =>
+              slug && (
+                <div className='py-2 md:px-2'>
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  <a>{title}</a>
-                </Link>{' '}
-                ({new Date(publishedAt).toDateString()})
-              </li>
-            )
-        )}
-      </div>
-    </div>
-  )
-}
-
-export async function getStaticProps() {
-    const posts = await sanityClient.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-    `)
-    return {
-      props: {
-        posts
+                <div key={_id} className='border rounded-md p-4 bg-white'>
+                <img className='w-full' src={urlFor(mainImage).url()}
+                  width='500'
+                  height='500' 
+                  alt="Mainn Image"/>
+                  <h2 className='text-2xl py-6'>{title}</h2>
+                  <p className='opacity-60'>{description}</p>
+                </div>
+                </Link>
+                </div>
+              )
+          )}
+          </div>
+        </div>
+      )
+  }
+  
+  export async function getStaticProps() {
+      const posts = await sanityClient.fetch(groq`
+        *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+      `)
+      return {
+        props: {
+          posts
+        }
       }
-    }
-}
+  }
 
 
 export default stories
