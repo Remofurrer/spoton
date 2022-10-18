@@ -5,11 +5,80 @@ import microphone from '../public/microphone.png'
 import disrupt from '../public/disrupt.png'
 import megafone from '../public/megafone.png'
 import event from '../public/event-unsplash.jpg'
+import Link from 'next/link'
+import groq from 'groq'
+import sanityClient from '../client'
+import imageUrlBuilder from '@sanity/image-url';
 
 
-const events = () => {
+function urlFor (source) {
+    return imageUrlBuilder(sanityClient).image(source)
+  }
+
+const events = ({posts}) => {
   return (
     <div className='space-y-20'>
+        <div className='bg-gray-100 space-y-20 pt-20 pb-20'>
+        <div className='md:flex md:px-40 p-4 md:space-x-10'>
+            {/* left section */}
+            <div className='pb-4'>
+                <h2 className='text-2xl'>SPOT ON Events</h2>
+            </div>
+            {/* right section */}
+            <div>
+                <p>Unsere Netzwerk- und Fachevents bringen Menschen zusammen für einen nachhaltigen Austausch, gegenseitige Inspiration und konkrete Handlungsschritte.</p>
+            </div>
+        </div>
+
+        <div className='md:flex md:px-40 p-4 md:space-x-10'>
+            {/* left section */}
+            <div className='pb-4'>
+                <h2 className='text-2xl'>Disrupt Zürich</h2>
+            </div>
+            {/* right section */}
+            <div>
+                <p>Organisierst du einen wertvollen Event für HRler und Arbeitsgestalter*innen? Gerne veröffentlichen wir ihn auf unserer Webseite. </p>
+            </div>
+        </div>
+
+        <div className='md:flex md:px-40 p-4 md:space-x-10'>
+            {/* left section */}
+            <div className='pb-4'>
+                <h2 className='text-2xl'>Deine Events</h2>
+            </div>
+            {/* right section */}
+            <div>
+                <p>Unsere Netzwerk- und Fachevents bringen Menschen zusammen für einen nachhaltigen Austausch, gegenseitige Inspiration und konkrete Handlungsschritte.</p>
+            </div>
+        </div>
+        </div>
+
+        <div className='px-4 py-4'>
+        {posts.slice(0, 2).map(
+          ({ _id, title = '', slug = '', description, mainImage }) =>
+            slug && (
+              <div key={_id} className='py-2 md:px-2 md:flex md:space-x-4'>
+                <div className='relative'>
+                <div className='w-20 text-center text-2xl absolute top-10 left-10 md:static'>
+                  <p className='bg-red-500 text-white rounded-t-lg'>Nov</p>
+                  <p className='bg-white rounded-b-lg'>17</p>
+                </div>
+                </div>
+              <Link href="#">
+              <div className='border rounded-md p-4 bg-white cursor-pointer'>
+              <img className='w-full' src={urlFor(mainImage).url()}
+                width='500'
+                height='500' 
+                alt="Mainn Image"/>
+                <h2 className='text-2xl py-6'>{title}</h2>
+                <p className='opacity-60'>{description}</p>
+              </div>
+              </Link>
+              </div>
+            )
+        )}
+        </div>
+
                 <div className='md:flex md:items-center justify-center px-4 md:px-20 md:space-x-20 py-20'>
             <Image src={microphone} alt="disrupt image"/>
             <div>
@@ -80,6 +149,17 @@ const events = () => {
         </div>
     </div>
   )
+}
+
+export async function getStaticProps() {
+    const posts = await sanityClient.fetch(groq`
+      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+    `)
+    return {
+      props: {
+        posts
+      }
+    }
 }
 
 export default events
