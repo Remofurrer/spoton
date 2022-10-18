@@ -59,7 +59,7 @@ const Navbar = () => {
                 <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
                     navbar ? "block" : "hidden"
                 }`}>
-                    <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-12'>
+                    <ul className='items-center justify-center md:flex md:space-x-20 md:space-y-0 pl-12'  onClick={() => setNavbar(!navbar)}>
                         <Link href="/stories">
                             <a><li className='text-gray-600 text-2xl hover:text-red-500 md:hover:underline md:hover:text-gray-600'>Stories</li></a>
                         </Link>

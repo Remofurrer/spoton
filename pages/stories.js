@@ -17,7 +17,7 @@ function urlFor (source) {
               slug && (
                 <div key={_id} className='py-2 md:px-2'>
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                <div className='border rounded-md p-4 bg-white'>
+                <div className='border rounded-md p-4 bg-white cursor-pointer'>
                 <img className='w-full' src={urlFor(mainImage).url()}
                   width='500'
                   height='500' 
