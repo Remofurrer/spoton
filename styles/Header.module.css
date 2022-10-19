@@ -3,7 +3,7 @@
     grid-template-columns: auto auto;
     justify-content: space-between;
     align-content: space-between;
-    height: 80vh;
+    height: 75vh;
     /* 700px; */
     background-color: white;
   }
@@ -14,4 +14,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  @media (max-width:680px) {
+    .Header {
+        height: 50vh;
+    }
   }

@@ -24,6 +24,7 @@ function urlFor (source) {
                   height='500' 
                   alt="Mainn Image"/>
                   <h2 className='text-2xl py-6'>{title}</h2>
+
                   <p>{description}</p>
                 </div>
                 </Link>
@@ -37,7 +38,7 @@ function urlFor (source) {
   
   export async function getStaticProps() {
       const posts = await sanityClient.fetch(groq`
-        *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+        *[_type == "post"]
       `)
       return {
         props: {
