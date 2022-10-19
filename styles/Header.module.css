@@ -1,3 +1,17 @@
-.img {
-    position:relative;
-}
+.Header {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 80vh;
+    /* 700px; */
+    background-color: white;
+  }
+
+  .Container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }

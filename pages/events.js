@@ -9,6 +9,10 @@ import Link from 'next/link'
 import groq from 'groq'
 import sanityClient from '../client'
 import imageUrlBuilder from '@sanity/image-url';
+import { PopupButton } from '@typeform/embed-react'
+import rechts from '../public/rechtsoben.svg';
+import links from '../public/links.svg';
+import styles from '../styles/Header.module.css';
 
 
 function urlFor (source) {
@@ -17,6 +21,14 @@ function urlFor (source) {
 
 const events = ({posts}) => {
   return (
+    <div>
+    <div className={styles.Header}>
+    <Image src={links} />
+    <Image src={rechts} />
+</div>
+<div className={styles.Container}>
+    <h2 className='text-5xl'>Events</h2>
+</div>
     <div className='space-y-20'>
         <div className='bg-gray-100 space-y-20 pt-20 pb-20'>
         <div className='md:flex md:px-40 p-4 md:space-x-10'>
@@ -92,7 +104,7 @@ const events = ({posts}) => {
                         <li>Jegliche Events, welche Produkte oder Dienstleistungen anpreisen oder sonst irgendetwas verkaufen oder promoten - direkt oder indirekt - werden nicht publiziert.</li>
                     </ul>
                     </div>
-                    <button className='text-white bg-red-500 p-3 mt-3 rounded'>Promote Your Event</button>
+                    <PopupButton className='text-white bg-red-500 p-3 mt-3 rounded' id="S0F9AzGE">Promote Your Event</PopupButton>
                 </div>
             </div>
         </div>
@@ -113,7 +125,9 @@ const events = ({posts}) => {
                     </div>
                     <p>Das sind die Vorgaben der weltweiten DisruptHR-Organisation.</p>
                     <p>Beim anschliessenden Apéro tauschen sich unsere neun bis elf Speaker*innen und rund 130 Gäste untereinander aus. </p>
-                    <button className='text-white bg-red-500 p-3 mt-3 rounded'>Kontakt</button>
+                    <Link type="email" href="mailto:hello@spoton.ch">
+                        <a><button className='text-white bg-red-500 p-3 mt-3 rounded'>Kontakt</button></a>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -132,7 +146,7 @@ const events = ({posts}) => {
                     </ul>
                     </div>
                     <p>Interesse mit uns einen solchen Fachevent zu organisieren? </p>
-                    <button className='text-white bg-red-500 p-3 mt-3 rounded'>Organize Events Together</button>
+                    <PopupButton className='text-white bg-red-500 p-3 mt-3 rounded' id="S0F9AzGE">Organize Events Together</PopupButton>
                 </div>
             </div>
         </div>
@@ -147,6 +161,7 @@ const events = ({posts}) => {
                 </div>
             </div>
         </div>
+    </div>
     </div>
   )
 }

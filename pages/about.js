@@ -3,11 +3,21 @@ import Image from 'next/image';
 import teamImage from '../public/team.webp';
 import About from '../public/about.jpg';
 import Link from 'next/link';
+import rechts from '../public/rechtsoben.svg';
+import links from '../public/links.svg';
+import styles from '../styles/Header.module.css';
 
 const about = () => {
   return (
     <div>
         {/* Header */}
+        <div className={styles.Header}>
+                <Image src={links} />
+                <Image src={rechts} />
+            </div>
+            <div className={styles.Container}>
+                <h2 className='text-5xl'>About</h2>
+            </div>
         <div className='px-5'>
             <div className='space-y-6 pt-20 pb-20 md:flex md:justify-evenly md:items-start'>
                 <h2 className='md:w-48 md:text-2xl'>SPOT ON ist die digitale Stimme der Arbeitswelt von morgen.</h2>
