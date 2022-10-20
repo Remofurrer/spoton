@@ -18,6 +18,9 @@
 
   @media (max-width:680px) {
     .Header {
-        height: 50vh;
+        height: 40vh;
+    }
+    .Container {
+        top: 25%;
     }
   }
