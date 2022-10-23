@@ -116,6 +116,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   publishedAt,
   body
 }`
+
 export async function getStaticPaths() {
   const paths = await sanityClient.fetch(
     groq`*[_type == "post" && defined(slug.current)][].slug.current`

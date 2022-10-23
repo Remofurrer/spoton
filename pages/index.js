@@ -124,16 +124,16 @@ const Index = ({posts}) => {
     )
 }
 
-// fetchiung data from sanity backend using getStaticProps
+
 export async function getStaticProps() {
-    const posts = await sanityClient.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-    `)
-    return {
-      props: {
-        posts
-      }
+  const posts = await sanityClient.fetch(groq`
+    *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+  `)
+  return {
+    props: {
+      posts
     }
+  }
 }
 
 export default Index

@@ -14,7 +14,7 @@ function urlFor (source) {
         <div className='bg-gray-100'>
           <div className='md:grid md:grid-cols-3 px-4 py-4'>
           {posts && posts.map(
-            ({ _id, title, slug, description, mainImage, categories }) =>
+            ({ title, categories, slug, description, mainImage, _id }) =>
               slug && (
                 <div key={_id} className='py-2 md:px-2'>
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
@@ -24,7 +24,6 @@ function urlFor (source) {
                   height='500' 
                   alt="Mainn Image"/>
                   <h2 className='text-2xl py-6'>{title}</h2>
-
                   <p>{description}</p>
                 </div>
                 </Link>
@@ -37,15 +36,15 @@ function urlFor (source) {
   }
   
   export async function getStaticProps() {
-      const posts = await sanityClient.fetch(groq`
-        *[_type == "post"]
-      `)
-      return {
-        props: {
-          posts
-        }
+    const posts = await sanityClient.fetch(groq`
+      *[_type == "post"]
+    `)
+    return {
+      props: {
+        posts
       }
-  }
+    }
+}
 
 
 export default stories
